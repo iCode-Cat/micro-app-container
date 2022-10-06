@@ -14,15 +14,8 @@ import Survey from './pages/Survey';
 const App = () => {
   const [state, setState] = useState<any>();
   const [loaded, setLoaded] = React.useState(false);
+  const [redirected, setRedirected] = React.useState(false);
   const condition = state?.condition;
-  console.log(state);
-
-  useEffect(() => {
-    if (condition?.allQuestionAnswered) {
-      console.log(condition?.allQuestionAnswered);
-      <Navigate to='/steps' />;
-    }
-  }, [condition?.allQuestionAnswered]);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -38,6 +31,8 @@ const App = () => {
                     state={state}
                     setLoaded={setLoaded}
                     loaded={loaded}
+                    setRedirected={setRedirected}
+                    redirected={redirected}
                   />
                 }
               />

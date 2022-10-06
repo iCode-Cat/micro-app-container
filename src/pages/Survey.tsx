@@ -1,13 +1,28 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 const MicroAppsSurvey = React.lazy(() => import('remote/MicroAppsSurvey'));
-const Survey = ({ setState, state, loaded, setLoaded }: any) => {
+const Survey = ({
+  setState,
+  state,
+  loaded,
+  setLoaded,
+  redirected,
+  setRedirected,
+}: any) => {
   const navigate = useNavigate();
-
   const condition = state?.condition;
+
   useEffect(() => {
-    if (condition?.allQuestionAnswered) {
+    // Clear redux state
+    if (redirected) {
+      window.location.href = '/';
+    }
+  }, []);
+
+  useEffect(() => {
+    if (condition?.allQuestionAnswered && !redirected) {
       navigate('/steps');
+      setRedirected(true);
     }
   }, [condition?.allQuestionAnswered]);
 
