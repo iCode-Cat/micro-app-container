@@ -47,7 +47,8 @@ module.exports = (_, argv) => ({
       name: 'host',
       filename: 'remoteEntry.js',
       remotes: {
-        quiz_mf: 'quiz_mf@https://micro-app-test.vercel.app/remoteEntry.js',
+        remote: 'remote@https://survey-ui-wheat.vercel.app/remoteEntry.js',
+        step: 'step@https://playbook.cognni.ai/remoteEntry.js',
       },
       exposes: {},
       shared: {
