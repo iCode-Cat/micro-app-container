@@ -11,6 +11,7 @@ const Survey = ({
 }: any) => {
   const navigate = useNavigate();
   const condition = state?.condition;
+  const sanity = state?.sanity;
 
   useEffect(() => {
     // Clear redux state
@@ -21,7 +22,7 @@ const Survey = ({
 
   useEffect(() => {
     if (condition?.allQuestionAnswered && !redirected) {
-      navigate('/steps');
+      navigate(`/step/${sanity.matrixTagDedicated?.stepId || '301'}`);
       setRedirected(true);
     }
   }, [condition?.allQuestionAnswered]);

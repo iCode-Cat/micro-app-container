@@ -7,8 +7,9 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
-import Step from 'step/Step';
+
 import './index.css';
+import StepContainer from './pages/StepContainer';
 import Survey from './pages/Survey';
 
 const App = () => {
@@ -36,14 +37,7 @@ const App = () => {
                   />
                 }
               />
-              <Route
-                path='/steps'
-                element={
-                  <div>
-                    <Step stepId='301' />
-                  </div>
-                }
-              />
+              <Route path='/step/:id' element={<StepContainer />} />
             </Routes>
           </div>
         </BrowserRouter>
