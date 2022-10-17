@@ -7,6 +7,8 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
+import FooterComp from './components/Footer';
+import Header from './components/Header';
 
 import './index.css';
 import StepContainer from './pages/StepContainer';
@@ -21,6 +23,7 @@ const App = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <>
+        <Header />
         <BrowserRouter>
           <div className='container'>
             <Routes>
@@ -41,6 +44,7 @@ const App = () => {
             </Routes>
           </div>
         </BrowserRouter>
+        <FooterComp />
       </>
     </Suspense>
   );
